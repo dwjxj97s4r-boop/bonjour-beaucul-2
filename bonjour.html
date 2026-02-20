@@ -43,8 +43,6 @@
         const word = "Bonjour";
         const container = document.getElementById("lettersContainer");
         const letters = [];
-
-        // Affiche "Bonjour" lettre par lettre
         word.split("").forEach((letter, index) => {
             const letterElement = document.createElement("div");
             letterElement.className = "letter";
@@ -58,11 +56,9 @@
                 letterElement.style.opacity = "1";
             }, 10);
         });
- // Explosion après 1 seconde + durée d'affichage
         const explosionDelay = word.length * 0.5 * 1000 + 1000; // 1s après la fin de l'animation d'apparition
         setTimeout(() => {
             letters.forEach(letter => {
-                // Génère des positions aléatoires pour l'explosion
                 const x = Math.random() * 100;
                 const y = Math.random() * 100;
                 const scale = Math.random() * 2 + 1;
@@ -71,7 +67,6 @@
                 letter.style.transition = `transform ${duration}s cubic-bezier(0.1, 0.8, 0.2, 1), opacity ${duration}s`;
                 letter.style.transform = `translate(${x}vw, ${y}vh) scale(${scale}) rotate(${rotation}deg)`;
                 letter.style.opacity = "0";
-                // Supprime la lettre après l'explosion
                 setTimeout(() => {
                     letter.remove();
                 }, duration * 1000);
