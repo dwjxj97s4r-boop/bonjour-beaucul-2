@@ -53,14 +53,12 @@
             letterElement.style.transitionDelay = `${index * 0.5}s`;
             container.appendChild(letterElement);
             letters.push(letterElement);
-
             setTimeout(() => {
                 letterElement.style.transform = "translateY(0)";
                 letterElement.style.opacity = "1";
             }, 10);
         });
-
-        // Explosion après 1 seconde + durée d'affichage
+ // Explosion après 1 seconde + durée d'affichage
         const explosionDelay = word.length * 0.5 * 1000 + 1000; // 1s après la fin de l'animation d'apparition
         setTimeout(() => {
             letters.forEach(letter => {
@@ -70,11 +68,9 @@
                 const scale = Math.random() * 2 + 1;
                 const rotation = Math.random() * 360;
                 const duration = 3; // Durée de l'explosion en secondes
-
                 letter.style.transition = `transform ${duration}s cubic-bezier(0.1, 0.8, 0.2, 1), opacity ${duration}s`;
                 letter.style.transform = `translate(${x}vw, ${y}vh) scale(${scale}) rotate(${rotation}deg)`;
                 letter.style.opacity = "0";
-
                 // Supprime la lettre après l'explosion
                 setTimeout(() => {
                     letter.remove();
